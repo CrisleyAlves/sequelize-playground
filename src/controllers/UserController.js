@@ -13,7 +13,7 @@ module.exports = {
     const user = await UserRepository.userExists(email);
     
     if(user) {
-      return res.status(200).json({ data: { message: 'This email is already in use' } }); 
+      return res.status(409).json({ data: { message: 'This email is already in use' } }); 
     }
 
     const passwordHash = await generatePasswordHash(password);
