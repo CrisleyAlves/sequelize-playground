@@ -1,8 +1,8 @@
-const UserModel = require("../models/User");
-const UserRepository = require("../repository/UserRepository");
+const UserModel = require("../../../models/User");
+const UserRepository = require("../../../repository/UserRepository");
 
-const { generateUserToken } = require("../shared/token");
-const { isPasswordCorrect } = require("../shared/bcrypt");
+const { generateUserToken } = require("../../../shared/token");
+const { isPasswordCorrect } = require("../../../shared/bcrypt");
 
 module.exports = {
   async authenticate(email, password) {

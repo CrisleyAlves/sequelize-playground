@@ -2,7 +2,7 @@ const { check, validationResult } = require('express-validator/check');
 const AuthRepository = require("../repository/AuthRepository");
 
 // @TODO
-// Maybe move this validation module
+// Maybe move this validation to a module
 
 const login = {
   validations: [
