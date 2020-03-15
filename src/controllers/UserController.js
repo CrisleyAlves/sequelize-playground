@@ -1,4 +1,3 @@
-const UserModel = require("../models/User");
 const UserRepository = require("../repository/UserRepository");
 const { generatePasswordHash } = require("../shared/bcrypt");
 
@@ -11,9 +10,9 @@ module.exports = {
     const { name, email, password } = req.body;
 
     const user = await UserRepository.userExists(email);
-    
+
     if(user) {
-      return res.status(409).json({ data: { message: 'This email is already in use' } }); 
+      return res.status(409).json({ data: { message: 'This email is already in use' } });
     }
 
     const passwordHash = await generatePasswordHash(password);
@@ -22,7 +21,7 @@ module.exports = {
       email,
       password: passwordHash,
     });
-    
-    return res.status(200).json({ data: { user: createdUser } }); 
+
+    return res.status(200).json({ data: { user: createdUser } });
   }
 }
