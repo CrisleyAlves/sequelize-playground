@@ -2,7 +2,7 @@ const UserModel = require("../models/User");
 
 module.exports = {
   async getAll() {
-    return await UserModel.findAll();
+    return await UserModel.findAll({ attributes: ['id', 'name', 'email'] });
   },
   async save({
     name,
