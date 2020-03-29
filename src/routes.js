@@ -2,7 +2,7 @@ const express = require('express');
 
 const AddressController = require('./controllers/AddressController');
 const TechController = require('./controllers/TechController');
-const CompanyController = require('./controllers/CompanyController');
+const CompanyController = require('./modules/company/controller/CompanyController');
 
 // Project modules
 const AuthController = require('./modules/authentication/controller/AuthController');

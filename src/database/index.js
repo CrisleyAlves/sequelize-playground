@@ -4,7 +4,7 @@ const dbConfig = require("../config/database");
 const UserModel = require('../modules/user/model/User');
 const AddressModel = require("../models/Address");
 const TechModel = require("../models/Tech");
-const CompanyModel = require("../models/Company");
+const CompanyModel = require("../modules/company/model/Company");
 
 const connection = new Sequelize(dbConfig);
 
