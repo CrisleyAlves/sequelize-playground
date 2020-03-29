@@ -1,4 +1,4 @@
-const UserModel = require("../models/User");
+const UserModel = require("../modules/user/model/User");
 
 module.exports = {
   async getTechs(user_id) {
@@ -6,7 +6,7 @@ module.exports = {
       include: {
         association: 'techs',
         attributes: ['name'],
-        through: { 
+        through: {
           attributes: [],
         }}
     });

@@ -1,5 +1,5 @@
 const CompanyRepository = require("../repository/CompanyRepository");
-const { generatePasswordHash } = require("../shared/bcrypt");
+const { generatePasswordHash } = require("../modules/shared/bcrypt");
 
 module.exports = {
   async index(req, res) {

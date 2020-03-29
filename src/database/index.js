@@ -1,7 +1,7 @@
 const Sequelize = require("sequelize");
 const dbConfig = require("../config/database");
 
-const UserModel = require("../models/User");
+const UserModel = require('../modules/user/model/User');
 const AddressModel = require("../models/Address");
 const TechModel = require("../models/Tech");
 const CompanyModel = require("../models/Company");

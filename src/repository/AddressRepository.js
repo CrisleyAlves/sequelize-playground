@@ -1,5 +1,5 @@
 const AddressModel = require("../models/Address");
-const UserModel = require("../models/User");
+const UserModel = require("../modules/user/model/User");
 
 module.exports = {
   async getAddresses(user_id) {

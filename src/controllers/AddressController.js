@@ -1,4 +1,4 @@
-const UserModel = require("../models/User");
+const UserModel = require("../modules/user/model/User");
 const AddressRepository = require("../repository/AddressRepository");
 
 module.exports = {
@@ -11,8 +11,6 @@ module.exports = {
     const { user_id } = req.params;
     const { zipcode, street, number } = req.body;
 
-    // @TODO
-    // Maybe move it to a service
     const user = await UserModel.findByPk(user_id);
     if(!user) {
       return res.status(404).json({ message: 'User does not exist' });
