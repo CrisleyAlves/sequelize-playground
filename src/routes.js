@@ -1,6 +1,5 @@
 const express = require('express');
 
-
 const TechController = require('./controllers/TechController');
 
 // Project modules
