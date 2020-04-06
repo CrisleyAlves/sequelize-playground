@@ -1,5 +1,6 @@
 const UserRepository = require("../repository/UserRepository");
 const { generatePasswordHash } = require("../../shared/bcrypt");
+const { emailAlreadyInUse } = require("../../shared/messages");
 
 module.exports = {
   async index(req, res) {
@@ -11,8 +12,8 @@ module.exports = {
 
     const user = await UserRepository.userExists(email);
 
-    if(user) {
-      return res.status(409).json({ data: { message: 'This email is already in use' } });
+    if (user) {
+      return res.status(409).json({ data: { message: emailAlreadyInUse } });
     }
 
     const passwordHash = await generatePasswordHash(password);
@@ -23,5 +24,5 @@ module.exports = {
     });
 
     return res.status(200).json({ data: { user: createdUser } });
-  }
+  },
 }

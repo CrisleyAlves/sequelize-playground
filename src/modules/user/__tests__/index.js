@@ -1,5 +1,6 @@
 const request = require('supertest');
 const { expect } = require('chai');
+const { emailAlreadyInUse } = require('../../shared/messages');
 const app = require('../../../app');
 
 describe('User module', () => {
@@ -17,6 +18,7 @@ describe('User module', () => {
       .expect('Content-Type', /json/)
       .expect(200);
 
+    expect(response.body.data.user.name).to.equal(user.name);
     expect(response.body.data.user.email).to.equal(user.email);
   });
 
@@ -34,8 +36,6 @@ describe('User module', () => {
       .expect('Content-Type', /json/)
       .expect(409);
 
-    // @TODO
-    // Create a file to store the API messages
-    expect(response.body.data.message).to.equal('This email is already in use');
+    expect(response.body.data.message).to.equal(emailAlreadyInUse);
   });
 });

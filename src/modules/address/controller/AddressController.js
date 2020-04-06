@@ -1,5 +1,6 @@
 const UserModel = require("../../user/model/User");
 const AddressRepository = require("../repository/AddressRepository");
+const { userDoesNotExist } = require("../../shared/messages");
 
 module.exports = {
   async index(req, res) {
@@ -13,7 +14,7 @@ module.exports = {
 
     const user = await UserModel.findByPk(user_id);
     if (!user) {
-      return res.status(404).json({ message: 'User does not exist' });
+      return res.status(404).json({ message: userDoesNotExist });
     }
 
     const address = await AddressRepository.save({
