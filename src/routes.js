@@ -1,12 +1,11 @@
 const express = require('express');
 
-const TechController = require('./controllers/TechController');
-
 // Project modules
 const AuthController = require('./modules/authentication/controller/AuthController');
 const UserController = require('./modules/user/controller/UserController');
 const CompanyController = require('./modules/company/controller/CompanyController');
 const AddressController = require('./modules/address/controller/AddressController');
+const TechController = require('./modules/tech/controller/TechController');
 
 const routes = express.Router();
 

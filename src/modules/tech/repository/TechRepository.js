@@ -1,4 +1,4 @@
-const UserModel = require("../modules/user/model/User");
+const UserModel = require("../../user/model/User");
 
 module.exports = {
   async getTechs(user_id) {
@@ -8,7 +8,8 @@ module.exports = {
         attributes: ['name'],
         through: {
           attributes: [],
-        }}
+        }
+      }
     });
   },
 };

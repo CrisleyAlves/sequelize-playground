@@ -1,5 +1,5 @@
-const TechModel = require("../models/Tech");
-const UserModel = require("../modules/user/model/User");
+const TechModel = require("../model/Tech");
+const UserModel = require("../../user/model/User");
 
 const TechRepository = require("../repository/TechRepository");
 
@@ -14,7 +14,7 @@ module.exports = {
     const { name } = req.body;
 
     const user = await UserModel.findByPk(user_id);
-    if(!user) {
+    if (!user) {
       return res.status(404).json({ message: 'User does not exist' });
     }
 
@@ -29,7 +29,7 @@ module.exports = {
     const { name } = req.body;
 
     const user = await UserModel.findByPk(user_id);
-    if(!user) {
+    if (!user) {
       return res.status(404).json({ message: 'User does not exist' });
     }
 
