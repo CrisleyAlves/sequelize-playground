@@ -5,7 +5,9 @@
   "license": "MIT",
   "scripts": {
     "dev": "nodemon src/server.js",
-    "test": "mocha src/ --watch"
+    "pretest": "NODE_ENV=test yarn sequelize db:migrate",
+    "postest": "NODE_ENV=test yarn sequelize db:migrate:undo:all",
+    "test": "yarn pretest && NODE_ENV=test yarn mocha src/**/*.test.js && yarn postest"
   },
   "dependencies": {
     "bcrypt": "^4.0.1",

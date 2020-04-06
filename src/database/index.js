@@ -6,7 +6,8 @@ const CompanyModel = require("../modules/company/model/Company");
 const UserModel = require('../modules/user/model/User');
 const AddressModel = require("../modules/address/model/Address");
 
-const connection = new Sequelize(dbConfig);
+const config = process.env.NODE_ENV === 'test' ? dbConfig.test : dbConfig.development;
+const connection = new Sequelize(config);
 
 UserModel.init(connection);
 AddressModel.init(connection);
