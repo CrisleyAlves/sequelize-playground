@@ -4,7 +4,8 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "dev": "nodemon src/server.js"
+    "dev": "nodemon src/server.js",
+    "test": "mocha src/ --watch"
   },
   "dependencies": {
     "bcrypt": "^4.0.1",
@@ -17,5 +18,10 @@
     "pg-hstore": "^2.3.3",
     "sequelize": "^5.21.4",
     "sequelize-cli": "^5.5.1"
+  },
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "mocha": "^7.1.1",
+    "supertest": "^4.0.2"
   }
 }
