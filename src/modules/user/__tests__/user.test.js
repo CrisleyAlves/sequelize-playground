@@ -1,9 +1,13 @@
 const request = require('supertest');
 const { expect } = require('chai');
 const { emailAlreadyInUse } = require('../../shared/messages');
+
+const truncate = require("../../../tests/util");
 const app = require('../../../app');
 
 describe('User module', () => {
+  before(async () => await truncate());
+
   it('should create a user and return the object created', async () => {
     const user = {
       name: 'dummy user name',

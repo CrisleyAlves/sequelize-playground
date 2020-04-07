@@ -7,7 +7,7 @@
     "dev": "nodemon src/server.js",
     "pretest": "NODE_ENV=test yarn sequelize db:migrate",
     "postest": "NODE_ENV=test yarn sequelize db:migrate:undo:all",
-    "test": "yarn pretest && NODE_ENV=test yarn mocha src/**/*.test.js && yarn postest"
+    "test": "yarn pretest && NODE_ENV=test yarn mocha src/tests/index.js && yarn postest"
   },
   "dependencies": {
     "bcrypt": "^4.0.1",

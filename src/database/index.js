@@ -7,16 +7,16 @@ const UserModel = require('../modules/user/model/User');
 const AddressModel = require("../modules/address/model/Address");
 
 const config = process.env.NODE_ENV === 'test' ? dbConfig.test : dbConfig.development;
-const connection = new Sequelize(config);
+const sequelize = new Sequelize(config);
 
-UserModel.init(connection);
-AddressModel.init(connection);
-AddressModel.init(connection);
-TechModel.init(connection);
-CompanyModel.init(connection);
+UserModel.init(sequelize);
+AddressModel.init(sequelize);
+AddressModel.init(sequelize);
+TechModel.init(sequelize);
+CompanyModel.init(sequelize);
 
-AddressModel.associate(connection.models);
-UserModel.associate(connection.models);
-TechModel.associate(connection.models);
+AddressModel.associate(sequelize.models);
+UserModel.associate(sequelize.models);
+TechModel.associate(sequelize.models);
 
-module.exports = connection;
+module.exports = sequelize;
