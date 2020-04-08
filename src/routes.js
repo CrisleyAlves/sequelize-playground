@@ -9,8 +9,8 @@ const TechController = require('./modules/tech/controller/TechController');
 
 const routes = express.Router();
 
-routes.get('/api/users', UserController.index);
-routes.post('/api/users', UserController.save);
+routes.get('/api/users', UserController.user.handler.index);
+routes.post('/api/users', UserController.user.validations, UserController.user.handler.save);
 
 routes.get('/api/users/:user_id/addresses', AddressController.index);
 routes.post('/api/users/:user_id/addresses', AddressController.save);
