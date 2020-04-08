@@ -13,7 +13,7 @@ const user = {
   handler: {
     async index(req, res) {
       const users = await UserRepository.getAll();
-      return res.status(403).json({ data: users });
+      return res.status(200).json({ data: users });
     },
     async save(req, res) {
       const { name, email, password } = req.body;
