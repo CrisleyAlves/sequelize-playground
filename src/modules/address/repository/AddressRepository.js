@@ -14,5 +14,8 @@ module.exports = {
       number,
       user_id,
     });
+  },
+  async delete({ user_id, address_id }) {
+    return AddressModel.destroy({ where: { id: address_id, user_id } });
   }
 };

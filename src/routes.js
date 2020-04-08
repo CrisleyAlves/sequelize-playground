@@ -14,6 +14,7 @@ routes.post('/api/users', UserController.user.validations, UserController.user.h
 
 routes.get('/api/users/:user_id/addresses', AddressController.index);
 routes.post('/api/users/:user_id/addresses', AddressController.save);
+routes.delete('/api/users/:user_id/addresses/:address_id', AddressController.delete);
 
 routes.get('/api/users/:user_id/techs', TechController.index);
 routes.post('/api/users/:user_id/techs', TechController.save);
