@@ -1,4 +1,4 @@
-const { check, validationResult } = require('express-validator/');
+const { validationResult } = require('express-validator/');
 
 const UserModel = require("../../user/model/User");
 const AddressRepository = require("../repository/AddressRepository");
@@ -9,14 +9,10 @@ const {
   serverError,
 } = require("../../shared/messages");
 
-// @TODO
-// Move the validation to another file to avoid code pollution
+const { validations } = require('./AddressValidation');
+
 const address = {
-  validations: [
-    check('zipcode').isLength({ min: 5, max: 5 }).withMessage('Zip code should be sent as 99999'),
-    check('street').isString().withMessage('Street should not be blank'),
-    check('number').isNumeric().withMessage('Number should be a number'),
-  ],
+  validations: validations.save,
   handler: {
     async index(req, res) {
       const { user_id } = req.params;
