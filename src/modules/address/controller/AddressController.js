@@ -9,7 +9,7 @@ const {
   serverError,
 } = require("../../shared/messages");
 
-const { validations } = require('./AddressValidation');
+const { validations } = require('../validations/AddressControllerValidation');
 
 const address = {
   validations: validations.save,

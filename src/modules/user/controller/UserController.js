@@ -1,15 +1,13 @@
-const { check, validationResult } = require('express-validator/');
+const { validationResult } = require('express-validator/');
 
 const UserRepository = require("../repository/UserRepository");
 const { generatePasswordHash } = require("../../shared/bcrypt");
 const { emailAlreadyInUse } = require("../../shared/messages");
 
+const { validations } = require('../validations/UserControllerValidation');
+
 const user = {
-  validations: [
-    check('name').isString().withMessage("Name should not be empty"),
-    check('email').isEmail().withMessage('Email address is not valid'),
-    check('password').isString().withMessage('Password is not valid'),
-  ],
+  validations: validations.save,
   handler: {
     async index(req, res) {
       const users = await UserRepository.getAll();
