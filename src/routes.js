@@ -12,9 +12,9 @@ const routes = express.Router();
 routes.get('/api/users', UserController.user.handler.index);
 routes.post('/api/users', UserController.user.validations, UserController.user.handler.save);
 
-routes.get('/api/users/:user_id/addresses', AddressController.index);
-routes.post('/api/users/:user_id/addresses', AddressController.save);
-routes.delete('/api/users/:user_id/addresses/:address_id', AddressController.delete);
+routes.get('/api/users/:user_id/addresses', AddressController.address.handler.index);
+routes.post('/api/users/:user_id/addresses', AddressController.address.validations, AddressController.address.handler.save);
+routes.delete('/api/users/:user_id/addresses/:address_id', AddressController.address.handler.delete);
 
 routes.get('/api/users/:user_id/techs', TechController.index);
 routes.post('/api/users/:user_id/techs', TechController.save);

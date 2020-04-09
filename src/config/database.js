@@ -18,6 +18,7 @@ module.exports = {
     username: 'postgres',
     password: 'postgres',
     database: 'sqlnode-test',
+    logging: false,
     define: {
       timestamps: true,
       underscored: true,
