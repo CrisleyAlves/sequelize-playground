@@ -5,14 +5,10 @@ const { emailAlreadyInUse } = require('../../../modules/shared/messages');
 const truncate = require("../../util");
 const app = require('../../../app');
 
+const { user } = require('./data');
+
 describe('User module', () => {
   before(async () => await truncate());
-
-  const user = {
-    name: 'dummy user name',
-    email: 'dummy@email.com',
-    password: 'password',
-  };
 
   it('should create a user and return the object created', async () => {
     const response = await request(app)
