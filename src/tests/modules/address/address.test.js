@@ -4,23 +4,18 @@ const app = require('../../../app');
 
 const { removeAddressSuccess, removeAddressError, serverError } = require('../../../modules/shared/messages');
 
-const FIRST_USER_ID = 1;
-const FIRST_ADDRESS_ID = 1;
-
-const INVALID_USER_ID = 99;
-const INVALID_ADDRESS_ID = 99;
-
-const NULL_USER_ID = null;
-const NULL_ADDRESS_ID = null;
+const {
+  address,
+  FIRST_ADDRESS_ID,
+  FIRST_USER_ID,
+  INVALID_ADDRESS_ID,
+  INVALID_USER_ID,
+  NULL_ADDRESS_ID,
+  NULL_USER_ID,
+} = require('./data');
 
 describe('Address module', () => {
   it('should add an address to a user', async () => {
-    const address = {
-      zipcode: '12345',
-      street: 'some street',
-      number: 13,
-    };
-
     const response = await request(app)
       .post(`/api/users/${FIRST_USER_ID}/addresses`)
       .send(address)

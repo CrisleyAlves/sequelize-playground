@@ -35,12 +35,6 @@ describe('User module', () => {
   });
 
   it('should return a message that the email sent is already in use', async () => {
-    const user = {
-      name: 'dummy user name',
-      email: 'dummy@email.com',
-      password: 'password',
-    };
-
     const response = await request(app)
       .post('/api/users/')
       .send(user)
