@@ -1,8 +1,8 @@
 const request = require('supertest');
 const { expect } = require('chai');
-const { emailAlreadyInUse } = require('../../shared/messages');
+const { emailAlreadyInUse } = require('../../../modules/shared/messages');
 
-const truncate = require("../../../tests/util");
+const truncate = require("../../util");
 const app = require('../../../app');
 
 describe('User module', () => {

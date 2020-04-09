@@ -2,7 +2,7 @@ const request = require('supertest');
 const { expect } = require('chai');
 const app = require('../../../app');
 
-const { removeAddressSuccess, removeAddressError, serverError } = require('../../shared/messages');
+const { removeAddressSuccess, removeAddressError, serverError } = require('../../../modules/shared/messages');
 
 const FIRST_USER_ID = 1;
 const FIRST_ADDRESS_ID = 1;

@@ -1,2 +1,2 @@
-require('../modules/user/__tests__/user.test');
-require('../modules/address/__tests__/address.test');
+require('./modules/user/user.test');
+require('./modules/address/address.test');
