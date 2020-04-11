@@ -16,9 +16,9 @@ routes.get('/api/users/:user_id/addresses', AddressController.address.handler.in
 routes.post('/api/users/:user_id/addresses', AddressController.address.validations, AddressController.address.handler.save);
 routes.delete('/api/users/:user_id/addresses/:address_id', AddressController.address.handler.delete);
 
-routes.get('/api/users/:user_id/techs', TechController.index);
-routes.post('/api/users/:user_id/techs', TechController.save);
-routes.delete('/api/users/:user_id/techs', TechController.delete);
+routes.get('/api/users/:user_id/techs', TechController.tech.handler.index);
+routes.post('/api/users/:user_id/techs', TechController.tech.validations, TechController.tech.handler.save);
+routes.delete('/api/users/:user_id/techs', TechController.tech.handler.delete);
 
 routes.post('/api/auth/login', AuthController.auth.validations, AuthController.auth.handler.authenticate);
 
