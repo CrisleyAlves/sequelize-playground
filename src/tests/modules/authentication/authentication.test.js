@@ -1,10 +1,9 @@
 const request = require('supertest');
 const { expect } = require('chai');
 
-const truncate = require("../../util");
 const app = require('../../../app');
 
-const { invalidCredentials, serverError } = require('../../../modules/shared/messages');
+const { invalidCredentials } = require('../../../modules/shared/messages');
 const { user } = require('../user/data');
 
 describe('Authentication module', () => {

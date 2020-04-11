@@ -39,9 +39,7 @@ describe('Tech module - Positive Flow', () => {
 
     expect(response.body.data.message).to.equal(removeTechSuccess);
   });
-});
 
-describe('Tech module - Negative flow', () => {
   it('should return a message that the given user id does not exist', async () => {
     const response = await request(app)
       .post(`/api/users/${INVALID_USER_ID}/techs/`)
@@ -52,4 +50,4 @@ describe('Tech module - Negative flow', () => {
 
     expect(response.body.message).to.equal(userDoesNotExist);
   });
-})
+});

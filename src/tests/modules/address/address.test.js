@@ -5,14 +5,15 @@ const app = require('../../../app');
 const { removeAddressSuccess, removeAddressError, serverError } = require('../../../modules/shared/messages');
 
 const {
-  address,
   FIRST_ADDRESS_ID,
   FIRST_USER_ID,
   INVALID_ADDRESS_ID,
   INVALID_USER_ID,
   NULL_ADDRESS_ID,
   NULL_USER_ID,
-} = require('./data');
+} = require('../shared/data');
+
+const { address } = require('./data');
 
 describe('Address module', () => {
   it('should add an address to a user', async () => {
