@@ -7,7 +7,7 @@ const generateUserToken = (user) => {
       name: user.name,
       email: user.email,
     },
-    process.env.JWT_SECRET_KEY || 'SECRET_KEY',
+    process.env.JWT_SECRET_KEY,
     {
       expiresIn: "1h"
     }
@@ -19,7 +19,7 @@ const getDataFromUserToken = (req, res, next) => {
   // Add environment variables
   try {
     const token = req.headers.authorization.split(" ")[1];
-    const decoded = jwt.verify(token, process.env.JWT_SECRET_KEY || 'SECRET_KEY');
+    const decoded = jwt.verify(token, process.env.JWT_SECRET_KEY);
     return decoded;
   } catch (error) {
     return {};

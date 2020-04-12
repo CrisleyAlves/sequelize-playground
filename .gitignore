@@ -1,6 +1,5 @@
 .nyc_output
+.env.development
 
 /node_modules/
 /coverage/
-
-src/sentry.js

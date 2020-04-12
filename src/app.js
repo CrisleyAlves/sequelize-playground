@@ -2,18 +2,14 @@ const express = require("express");
 const routes = require("./routes");
 const Sentry = require('@sentry/node');
 
-// @TODO
-// Create .env file and get project configuration from there
-const { dsn } = require('./sentry');
+require('./database');
 
 if (process.env.NODE_ENV !== 'test') {
   Sentry.init({
-    environment: 'development',
-    dsn,
+    environment: process.env.NODE_ENV,
+    dsn: process.env.SENTRY_DNS,
   });
 }
-
-require('./database');
 
 const app = express();
 
