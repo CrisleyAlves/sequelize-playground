@@ -11,6 +11,7 @@
     "test-with-coverage": "yarn pretest && NODE_ENV=test nyc --reporter=html mocha src/tests/index.js && yarn postest"
   },
   "dependencies": {
+    "@sentry/node": "5.15.4",
     "bcrypt": "^4.0.1",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
