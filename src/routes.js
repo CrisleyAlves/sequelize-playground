@@ -22,7 +22,7 @@ routes.delete('/api/users/:user_id/techs', TechController.tech.handler.delete);
 
 routes.post('/api/auth/login', AuthController.auth.validations, AuthController.auth.handler.authenticate);
 
-routes.get('/api/companies', CompanyController.index);
-routes.post('/api/companies', CompanyController.save);
+routes.get('/api/companies', CompanyController.company.handler.index);
+routes.post('/api/companies', CompanyController.company.validations, CompanyController.company.handler.save);
 
 module.exports = routes;
