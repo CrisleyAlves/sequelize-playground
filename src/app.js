@@ -1,3 +1,5 @@
+require('module-alias/register')
+
 const express = require("express");
 const routes = require("./routes");
 const Sentry = require('@sentry/node');

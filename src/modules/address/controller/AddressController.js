@@ -1,13 +1,13 @@
 const { validationResult } = require('express-validator/');
 
-const UserModel = require("../../user/model/User");
+const UserModel = require("@modules/user/model/User");
 const AddressRepository = require("../repository/AddressRepository");
 const {
   userDoesNotExist,
   removeAddressSuccess,
   removeAddressError,
   serverError,
-} = require("../../shared/messages");
+} = require("@modules/shared/messages");
 
 const { validations } = require('../validations/AddressControllerValidation');
 

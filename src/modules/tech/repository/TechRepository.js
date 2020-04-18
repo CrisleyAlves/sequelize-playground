@@ -1,4 +1,4 @@
-const UserModel = require("../../user/model/User");
+const UserModel = require("@modules/user/model/User");
 
 module.exports = {
   async getTechs(user_id) {

@@ -1,9 +1,14 @@
 const { validationResult } = require('express-validator/');
 
 const TechModel = require("../model/Tech");
-const UserRepository = require("../../user/repository/UserRepository");
+const UserRepository = require("@modules/user/repository/UserRepository");
 
-const { serverError, userDoesNotExist, addTechSuccess, removeTechSuccess } = require("../../shared/messages");
+const {
+  serverError,
+  userDoesNotExist,
+  addTechSuccess,
+  removeTechSuccess,
+} = require("@modules/shared/messages");
 const TechRepository = require("../repository/TechRepository");
 const { validations } = require('../validations/TechControllerValidation');
 

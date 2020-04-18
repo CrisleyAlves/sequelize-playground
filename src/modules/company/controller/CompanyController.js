@@ -1,7 +1,7 @@
 const { validationResult } = require('express-validator/');
 
-const { generatePasswordHash } = require("../../shared/bcrypt");
-const { serverError } = require("../../shared/messages");
+const { generatePasswordHash } = require("@modules/shared/bcrypt");
+const { serverError } = require("@modules/shared/messages");
 const { validations } = require('../validations/CompanyControllerValidation');
 
 const CompanyRepository = require("../repository/CompanyRepository");

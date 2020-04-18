@@ -1,8 +1,8 @@
 const { validationResult } = require('express-validator/');
 
 const UserRepository = require("../repository/UserRepository");
-const { generatePasswordHash } = require("../../shared/bcrypt");
-const { emailAlreadyInUse } = require("../../shared/messages");
+const { generatePasswordHash } = require("@modules/shared/bcrypt");
+const { emailAlreadyInUse } = require("@modules/shared/messages");
 
 const { validations } = require('../validations/UserControllerValidation');
 

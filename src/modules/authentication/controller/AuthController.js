@@ -1,9 +1,9 @@
 const { validationResult } = require('express-validator/');
-const AuthRepository = require("../repository/AuthRepository");
 
+const AuthRepository = require("../repository/AuthRepository");
 const { validations } = require('../validations/AuthControllerValidation');
 
-const { serverError, invalidCredentials } = require("../../shared/messages");
+const { serverError, invalidCredentials } = require("@modules/shared/messages");
 
 const auth = {
   validations: validations.authenticate,
