@@ -1,12 +1,11 @@
 require('module-alias/register')
+require('./common/database');
 
 const express = require("express");
-const routes = require("./routes");
 const Sentry = require('@sentry/node');
+const routes = require("./rest/routes");
 
-require('./database');
-
-if (process.env.NODE_ENV !== 'test') {
+if (process.env.NODE_ENV === 'production') {
   Sentry.init({
     environment: process.env.NODE_ENV,
     dsn: process.env.SENTRY_DNS,

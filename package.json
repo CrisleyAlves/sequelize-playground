@@ -7,8 +7,8 @@
     "dev": "nodemon src/server.js",
     "pretest": "NODE_ENV=test yarn sequelize db:migrate",
     "postest": "NODE_ENV=test yarn sequelize db:migrate:undo:all",
-    "test": "yarn pretest && NODE_ENV=test yarn mocha src/tests/index.js && yarn postest",
-    "test-with-coverage": "yarn pretest && NODE_ENV=test nyc --reporter=html mocha src/tests/index.js && yarn postest"
+    "test": "yarn pretest && NODE_ENV=test yarn mocha src/rest/tests/index.js && yarn postest",
+    "test-with-coverage": "yarn pretest && NODE_ENV=test nyc --reporter=html mocha src/rest/tests/index.js && yarn postest"
   },
   "dependencies": {
     "@sentry/node": "5.15.4",
@@ -32,6 +32,8 @@
   },
   "_moduleAliases": {
     "@root": ".",
-    "@modules": "src/modules/"
+    "@models": "src/common/models/",
+    "@repositories": "src/common/repositories/",
+    "@utils": "src/common/utils/"
   }
 }
