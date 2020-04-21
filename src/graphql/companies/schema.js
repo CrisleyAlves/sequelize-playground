@@ -1,6 +1,6 @@
 const { gql } = require('apollo-server-express')
 
-const typeDefs = gql`
+const typeDefs = `
   type Company {
     description: String
     email: String
@@ -15,14 +15,18 @@ const typeDefs = gql`
     email: String
     password: String
   }
-
-  type Query {
-    getAllCompanies: [Company!]
-  }
-
-  type Mutation {
-    createCompany(company: CompanyInput!): Company
-  }
 `
 
-module.exports = { Company: typeDefs };
+const companyTypeDefsQueries = `
+  getAllCompanies: [Company!]
+`;
+
+const companyTypeDefsMutations = `
+  createCompany(company: CompanyInput!): Company
+`
+
+module.exports = {
+  Company: typeDefs,
+  companyTypeDefsQueries,
+  companyTypeDefsMutations
+};

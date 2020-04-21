@@ -1,4 +1,6 @@
-const { Company } = require('./companies/schema')
+const { gql } = require('apollo-server-express')
+
+const { Company, companyTypeDefsMutations, companyTypeDefsQueries } = require('./companies/schema')
 const { companyMutations, companyQueries } = require('./companies/resolvers')
 
 const resolvers = {
@@ -10,8 +12,16 @@ const resolvers = {
   }
 };
 
-const typeDefs = [
-  Company,
-];
+const typeDefs = gql`
+  ${Company}
+
+  type Query {
+    ${companyTypeDefsQueries}
+  }
+
+  type Mutation {
+    ${companyTypeDefsMutations}
+  }
+`
 
 module.exports = { resolvers, typeDefs };
