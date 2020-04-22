@@ -9,6 +9,9 @@ const { userMutations, userQueries } = require('./users/resolvers')
 const { Address, addressTypeDefsMutations, addressTypeDefsQueries } = require('./addresses/schema')
 const { addressMutations, addressQueries } = require('./addresses/resolvers')
 
+const { Auth, authTypeDefsMutations } = require('./authentication/schema')
+const { authenticationMutations } = require('./authentication/resolvers')
+
 const resolvers = {
   Query: {
     ...companyQueries,
@@ -19,6 +22,7 @@ const resolvers = {
     ...companyMutations,
     ...userMutations,
     ...addressMutations,
+    ...authenticationMutations
   }
 };
 
@@ -26,6 +30,7 @@ const typeDefs = gql`
   ${Company}
   ${User}
   ${Address}
+  ${Auth}
 
   type Query {
     ${companyTypeDefsQueries}
@@ -37,6 +42,7 @@ const typeDefs = gql`
     ${companyTypeDefsMutations}
     ${userTypeDefsMutations}
     ${addressTypeDefsMutations}
+    ${authTypeDefsMutations}
   }
 `
 
