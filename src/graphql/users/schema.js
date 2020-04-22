@@ -1,7 +1,9 @@
 const typeDefs = `
   type User {
+    id: Int
     name: String
     email: String
+    addresses: [Address]
   }
 
   input UserInput {
