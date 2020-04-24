@@ -1,5 +1,3 @@
-const { validationResult } = require('express-validator/');
-
 const UserRepository = require("@repositories/UserRepository");
 const { generatePasswordHash } = require("@utils/bcrypt");
 const { emailAlreadyInUse } = require("@utils/messages");
@@ -15,11 +13,6 @@ const user = {
     },
     async save(req, res) {
       const { name, email, password } = req.body;
-
-      const schemaErrors = validationResult(req);
-      if (!schemaErrors.isEmpty()) {
-        return res.status(403).send(schemaErrors);
-      }
 
       try {
         const user = await UserRepository.userExists(email);

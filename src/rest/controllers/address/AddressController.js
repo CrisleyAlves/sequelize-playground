@@ -1,5 +1,3 @@
-const { validationResult } = require('express-validator/');
-
 const UserModel = require("@models/User");
 const AddressRepository = require("@repositories/AddressRepository");
 const {
@@ -22,11 +20,6 @@ const address = {
     async save(req, res) {
       const { user_id } = req.params;
       const { zipcode, street, number } = req.body;
-
-      const schemaErrors = validationResult(req);
-      if (!schemaErrors.isEmpty()) {
-        return res.status(403).send(schemaErrors);
-      }
 
       const user = await UserModel.findByPk(user_id);
       if (!user) {

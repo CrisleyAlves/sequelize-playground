@@ -1,5 +1,3 @@
-const { validationResult } = require('express-validator/');
-
 const AuthRepository = require("@repositories/AuthRepository");
 const { serverError, invalidCredentials } = require("@utils/messages");
 
@@ -10,11 +8,6 @@ const auth = {
   handler: {
     authenticate: async (req, res) => {
       const { password, email } = req.body;
-
-      const schemaErrors = validationResult(req);
-      if (!schemaErrors.isEmpty()) {
-        return res.status(403).send(schemaErrors.array());
-      }
 
       try {
         const token = await AuthRepository.authenticate(email, password);

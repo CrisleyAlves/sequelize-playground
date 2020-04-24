@@ -1,5 +1,3 @@
-const { validationResult } = require('express-validator/');
-
 const TechModel = require("@models/Tech");
 
 const UserRepository = require("@repositories/UserRepository");
@@ -36,11 +34,6 @@ const tech = {
     async save(req, res) {
       const { user_id } = req.params;
       const { name } = req.body;
-
-      const schemaErrors = validationResult(req);
-      if (!schemaErrors.isEmpty()) {
-        return res.status(403).send(schemaErrors);
-      }
 
       try {
         const user = await UserRepository.getById(user_id);
