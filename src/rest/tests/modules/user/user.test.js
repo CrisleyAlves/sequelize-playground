@@ -21,8 +21,8 @@ describe('User module', () => {
       .expect('Content-Type', /json/)
       .expect(200);
 
-    expect(response.body.data.user.name).to.equal(user.name);
-    expect(response.body.data.user.email).to.equal(user.email);
+    expect(response.body.data.name).to.equal(user.name);
+    expect(response.body.data.email).to.equal(user.email);
   });
 
   it('should return all users', async () => {
@@ -45,6 +45,6 @@ describe('User module', () => {
       .expect('Content-Type', /json/)
       .expect(409);
 
-    expect(response.body.data.message).to.equal(emailAlreadyInUse);
+    expect(response.body.message).to.equal(emailAlreadyInUse);
   });
 });
