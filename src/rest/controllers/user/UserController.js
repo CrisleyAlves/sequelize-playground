@@ -36,7 +36,7 @@ const user = {
 
         return res.status(200).json(ok(createdUser));
       } catch (error) {
-        return res.status(500).json(serverError());
+        return res.status(500).json(serverError(error));
       }
     },
   }
