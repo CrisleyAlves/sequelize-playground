@@ -1,5 +1,5 @@
-.nyc_output
-.env.development
+base-project/.nyc_output
+base-project/.env.development
 
-/node_modules/
-/coverage/
+base-project/node_modules/
+base-project/coverage/
