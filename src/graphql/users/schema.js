@@ -4,6 +4,12 @@ const typeDefs = `
     name: String
     email: String
     addresses: [Address]
+    techs: [Tech]
+  }
+
+  type Tech {
+    id: Int
+    name: String
   }
 
   input UserInput {
@@ -15,6 +21,7 @@ const typeDefs = `
 
 const userTypeDefsQueries = `
   getAllUsers: [User]
+  getUserData(user_id: ID!): User
 `;
 
 const userTypeDefsMutations = `

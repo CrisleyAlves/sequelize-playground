@@ -12,6 +12,14 @@ const userQueries = {
       return serverError(error);
     }
   },
+  async getUserData(root, { user_id }) {
+    try {
+      const userData = await UserRepository.getUserData(user_id);
+      return userData;
+    } catch (error) {
+      return serverError(error);
+    }
+  },
 };
 
 const userMutations = {

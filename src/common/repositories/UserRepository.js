@@ -7,6 +7,11 @@ module.exports = {
   async getById(user_id) {
     return await UserModel.findByPk(user_id);
   },
+  async getUserData(user_id) {
+    return UserModel.findByPk(user_id, {
+      include: { all: true },
+    });
+  },
   async save({
     name,
     email,
