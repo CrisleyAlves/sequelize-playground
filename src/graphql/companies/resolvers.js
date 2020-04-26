@@ -1,5 +1,6 @@
 const CompanyRepository = require("@repositories/CompanyRepository");
 const { generatePasswordHash } = require("@utils/bcrypt");
+const { serverError } = require("@utils/http");
 
 const companyQueries = {
   async getAllCompanies() {
@@ -7,7 +8,7 @@ const companyQueries = {
       const companies = await CompanyRepository.getAll();
       return companies;
     } catch (error) {
-      return error;
+      return serverError(error);
     }
   },
 };
@@ -25,7 +26,7 @@ const companyMutations = {
 
       return createdCompany;
     } catch (error) {
-      return error;
+      return serverError(error);
     }
   },
 };

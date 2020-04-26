@@ -1,7 +1,7 @@
 const emailAlreadyInUse = 'This email is already in use';
 const userDoesNotExist = 'User does not exist';
 const removeAddressSuccess = 'The address was removed successfully';
-const removeAddressError = 'The given address doest not exist';
+const removeAddressError = 'The given address does not exist';
 const invalidCredentials = 'Invalid credentials';
 const addTechSuccess = 'Technology was added succesfuly'
 const removeTechSuccess = 'Tech removed successfully';

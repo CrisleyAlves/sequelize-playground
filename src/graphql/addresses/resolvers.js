@@ -1,4 +1,6 @@
 const AddressRepository = require("@repositories/AddressRepository");
+const { removeAddressError } = require("@utils/messages");
+const { serverError, notFound } = require("@utils/http");
 
 const addressQueries = {
   async getUserAddresses(root, { user_id }) {
@@ -6,7 +8,7 @@ const addressQueries = {
       const addresses = await AddressRepository.getAddresses(user_id);
       return addresses;
     } catch (error) {
-      return error;
+      return serverError(error);
     }
   },
 };
@@ -17,7 +19,7 @@ const addressMutations = {
       const addressCreated = await AddressRepository.save({ user_id, ...address })
       return addressCreated;
     } catch (error) {
-      return error;
+      return serverError(error);
     }
   },
   async deleteAddress(root, { user_id, address_id }) {
@@ -25,12 +27,12 @@ const addressMutations = {
       const isAddressRemoved = await AddressRepository.delete({ user_id, address_id })
 
       if (!isAddressRemoved) {
-        return false;
+        return notFound(removeAddressError);
       }
 
       return true;
     } catch (error) {
-      return error;
+      return serverError(error);
     }
   },
 };

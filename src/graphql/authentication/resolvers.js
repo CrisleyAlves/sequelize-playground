@@ -1,4 +1,6 @@
 const AuthRepository = require("@repositories/AuthRepository");
+const { invalidCredentials } = require("@utils/messages");
+const { serverError, unauthorized } = require("@utils/http");
 
 const authenticationMutations = {
   async authenticate(root, { auth }) {
@@ -6,11 +8,11 @@ const authenticationMutations = {
 
     try {
       const token = await AuthRepository.authenticate(email, password);
-      if (!token) return false;
+      if (!token) return unauthorized(invalidCredentials);
 
       return { token };
     } catch (error) {
-      return error;
+      return serverError(error);
     }
   },
 };
