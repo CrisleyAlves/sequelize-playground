@@ -6,7 +6,10 @@ const sentry = require('./sentry');
 const server = new ApolloServer({
   typeDefs,
   resolvers,
-  formatError: (error) => sentry.formatError(error),
+  formatError: (error) => {
+    sentry.formatError(error);
+    return error;
+  }
 });
 
 module.exports = server;
